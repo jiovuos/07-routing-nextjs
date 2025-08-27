@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
-import css from "./NoteModal.module.css";
+import css from "./Modal.module.css";
 
 export interface ModalProps {
   children: React.ReactNode;
@@ -29,6 +29,6 @@ export default function Modal({ children, onClose }: ModalProps) {
         {children}
       </div>
     </div>,
-    modalRoot,
+    modalRoot
   );
 }

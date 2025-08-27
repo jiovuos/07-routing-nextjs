@@ -6,11 +6,11 @@ import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 
 export const metadata: Metadata = {
   title: "NoteHub",
-  description: "Notes made simple",
+  description: "Notes made simple"
 };
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {
