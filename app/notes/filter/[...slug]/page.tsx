@@ -1,7 +1,7 @@
 import {
   dehydrate,
   HydrationBoundary,
-  QueryClient
+  QueryClient,
 } from "@tanstack/react-query";
 import { notFound } from "next/navigation";
 import { fetchNotes, type FetchNotesResponse } from "@/lib/api";
@@ -22,7 +22,7 @@ export default async function NotesFilterPage({ params }: PageProps) {
     "Personal",
     "Meeting",
     "Shopping",
-    "All"
+    "All",
   ];
   if (!validTags.includes(currentTag as NoteTag | "All")) {
     notFound();
@@ -37,12 +37,12 @@ export default async function NotesFilterPage({ params }: PageProps) {
     page,
     perPage: 6,
     search,
-    tag: tagParam
+    tag: tagParam,
   });
 
   await queryClient.prefetchQuery({
     queryKey: ["notes", page, search, currentTag],
-    queryFn: () => Promise.resolve(initialNotes)
+    queryFn: () => Promise.resolve(initialNotes),
   });
 
   return (

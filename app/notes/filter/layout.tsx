@@ -3,7 +3,7 @@ import css from "./LayoutNotes.module.css";
 export default function NotesLayout({
   children,
   sidebar,
-  modal
+  modal,
 }: {
   children: React.ReactNode;
   sidebar: React.ReactNode;

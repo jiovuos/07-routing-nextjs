@@ -24,7 +24,7 @@ export default function NotesClient({
   initialPage,
   initialSearch,
   initialNotes,
-  tag
+  tag,
 }: NotesClientProps) {
   const [search, setSearch] = useState(initialSearch);
   const [debouncedSearch] = useDebounce(search, 500);
@@ -38,13 +38,13 @@ export default function NotesClient({
         page,
         perPage: 6,
         search: debouncedSearch,
-        tag: tag === "All" ? undefined : (tag as NoteTag)
+        tag: tag === "All" ? undefined : (tag as NoteTag),
       }),
     placeholderData: (prev) => prev,
     initialData:
       page === initialPage && debouncedSearch === initialSearch && tag === "All"
         ? initialNotes
-        : undefined
+        : undefined,
   });
 
   const totalPages = data?.totalPages ?? 1;
