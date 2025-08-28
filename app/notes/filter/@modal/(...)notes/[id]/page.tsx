@@ -1,12 +1,20 @@
 import BackModal from "@/components/Modal/BackModal";
 import NotePreview from "@/components/NotePreview/NotePreview";
 import { fetchNoteById } from "@/lib/api";
+import { notFound } from "next/navigation";
 
-type MaybePromise<T> = T | Promise<T>;
-type PageProps = { params: MaybePromise<{ id: string }> };
+type PageProps = {
+  params?: Promise<{ id: string }>;
+};
 
 export default async function NoteModalPage({ params }: PageProps) {
-  const { id } = await Promise.resolve(params);
+  const resolved = await Promise.resolve(params);
+  const id = resolved?.id;
+
+  if (!id) {
+    notFound();
+  }
+
   const note = await fetchNoteById(id);
 
   return (
