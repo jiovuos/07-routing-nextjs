@@ -6,13 +6,15 @@ import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 
 export const metadata: Metadata = {
   title: "NoteHub",
-  description: "Notes made simple",
+  description: "Notes made simple"
 };
 
 export default function RootLayout({
   children,
+  modal
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -20,7 +22,7 @@ export default function RootLayout({
         <TanStackProvider>
           <Header />
           {children}
-          <div id="modal-root"></div>
+          {modal}
           <Footer />
         </TanStackProvider>
       </body>
